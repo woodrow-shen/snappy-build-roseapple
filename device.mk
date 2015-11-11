@@ -11,7 +11,7 @@ DEVICE_UINITRD := $(DEVICE_SRC)/assets/initrd.img
 DEVICE_MODULES := $(DEVICE_SRC)/system
 DEVICE_MODPROBE_D := $(DEVICE_SRC)/system/lib/modprobe.d
 DEVICE_FIRMWARE := $(DEVICE_SRC)/system/lib/firmware
-DEVICE_TAR := $(PWD)/device-mt7623_$(DEVICE_VERSION).tar.xz
+DEVICE_TAR := $(PWD)/device-roseapple-pi_$(DEVICE_VERSION).tar.xz
 
 all: build
 

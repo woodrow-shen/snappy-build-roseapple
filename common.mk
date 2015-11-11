@@ -1,6 +1,11 @@
 CPUS := $(shell getconf _NPROCESSORS_ONLN)
 
 OUTPUT_DIR := $(PWD)
+SCRIPT_DIR := $(OUTPUT_DIR)/scripts
+TOOLS_DIR := $(OUTPUT_DIR)/tools
+PRELOAD_DIR := $(OUTPUT_DIR)/preloader
+OEM_BOOT_DIR := $(OUTPUT_DIR)/oem/boot-assets
+
 # VNEDOR: toolchain from BSP ; DEB: toolchain from deb
 TOOLCHAIN := DEB
 

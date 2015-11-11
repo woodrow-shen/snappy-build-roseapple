@@ -26,7 +26,7 @@ ssh-keygen -t rsa
 ## Quick Build
 A `Makefile` is provided to build OEM snap, U-Boot, Kernel and Initrd from source. The sources will be cloned into local folders if not there already.
 
-To build it all, just run `make snappy`. This will produce a oem snap `roseapple_x.y_all.snap` and a `device-roseapple_x.y.tar.gz` device part, which can be used to build your own Snappy image.
+To build it all, just run `make snappy`. This will produce a oem snap `roseapple-pi_x.y_all.snap` and a `device-roseapple-pi_x.y.tar.gz` device part, which can be used to build your own Snappy image.
 
 ### Build U-boot
 
