@@ -1,9 +1,12 @@
 CPUS := $(shell getconf _NPROCESSORS_ONLN)
 
+include .config 
+
 OUTPUT_DIR := $(PWD)
 SCRIPT_DIR := $(OUTPUT_DIR)/scripts
 TOOLS_DIR := $(OUTPUT_DIR)/tools
 PRELOAD_DIR := $(OUTPUT_DIR)/preloader
+CONFIG_DIR := $(OUTPUT_DIR)/config/$(IC_NAME)/$(BOARD_NAME)
 OEM_BOOT_DIR := $(OUTPUT_DIR)/oem/boot-assets
 
 # VNEDOR: toolchain from BSP ; DEB: toolchain from deb
@@ -25,8 +28,8 @@ KERNEL_OUT := $(PWD)/kernel-build
 UBOOT_REPO := https://github.com/xapp-le/u-boot.git
 UBOOT_BRANCH := master
 UBOOT_SRC := $(PWD)/u-boot
-UBOOT_BIN := $(UBOOT_SRC)/u-boot.bin
 UBOOT_OUT := $(PWD)/u-boot-build
+UBOOT_BIN := $(UBOOT_OUT)/u-boot-dtb.img
 
 ifeq ($(TOOLCHAIN),VENDOR)
 CC :=
