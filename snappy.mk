@@ -1,13 +1,13 @@
 include common.mk
 include device.mk
 
-SNAPPY_VERSION := 20151030-0
-SNAPPY_IMAGE := fukuoka-${SNAPPY_VERSION}.img
+SNAPPY_VERSION := 20151118-0
+SNAPPY_IMAGE := roseapple-pi-${SNAPPY_VERSION}.img
 # yes for latest version; no for the specific revision of edge/stable channel
 SNAPPY_CORE_NEW := yes
 SNAPPY_CORE_VER ?=
 SNAPPY_CORE_CH := stable
-OEM_SNAP := mt7623_0.12_all.snap
+OEM_SNAP := roseapple-pi_0.1_all.snap
 REVISION ?=
 SNAPPY_WORKAROUND := no
 
@@ -34,7 +34,6 @@ endif
 			$(REVISION)
 
 fix-bootflag:
-		dd conv=notrunc if=boot_fix.bin of=$(SNAPPY_IMAGE) seek=440 oflag=seek_bytes	
 
 workaround:
 ifeq ($(SNAPPY_WORKAROUND),yes)

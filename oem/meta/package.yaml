@@ -25,5 +25,5 @@ oem:
       raw-files:
         - path: boot-assets/bootloader.bin
           offset: 4097
-        - path: boot-assets/uboot.bin
+        - path: boot-assets/u-boot.bin
           offset: 6144

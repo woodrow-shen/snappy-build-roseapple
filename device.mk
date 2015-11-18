@@ -60,18 +60,6 @@ preinstalled: $(DEVICE_SRC)/preinstalled.tar.gz
 modules:
 	@if [ ! -e $(KERNEL_MODULES) ] ; then echo "Build linux modules first."; exit 1; fi
 	@rm -rf $(DEVICE_MODULES)
-	@mkdir -p $(DEVICE_MODULES)/lib/modules/3.10.20-1-generic/
-	@mkdir -p $(DEVICE_MODULES)/lib/modules/3.10.20-1-generic/drivers/gpu/drm/mali
-	@mkdir -p $(DEVICE_MODULES)/lib/modules/3.10.20-1-generic/drivers/rtc
-	@mkdir -p $(DEVICE_MODULES)/lib/modules/3.10.20-1-generic/drivers/char
-	@mkdir -p $(DEVICE_MODULES)/lib/modules/3.10.20-1-generic/net/nat/hw_nat
-	@mkdir -p $(DEVICE_MODULES)/lib/modules/3.10.20-1-generic/net/rfkill
-	cp -a  $(KERNEL_MODULES)/drivers/gpu/drm/mali/mali_drm.ko $(DEVICE_MODULES)/lib/modules/3.10.20-1-generic/drivers/gpu/drm/mali
-	cp -a  $(KERNEL_MODULES)/drivers/rtc/rtc-cmos.ko $(DEVICE_MODULES)/lib/modules/3.10.20-1-generic/drivers/rtc
-	cp -a  $(KERNEL_MODULES)/drivers/char/raw.ko $(DEVICE_MODULES)/lib/modules/3.10.20-1-generic/drivers/char
-	cp -a  $(KERNEL_MODULES)/drivers/char/nvram.ko $(DEVICE_MODULES)/lib/modules/3.10.20-1-generic/drivers/char
-	cp -a  $(KERNEL_MODULES)/net/nat/hw_nat/hw_nat.ko $(DEVICE_MODULES)/lib/modules/3.10.20-1-generic/net/nat/hw_nat
-	cp -a  $(KERNEL_MODULES)/net/rfkill/rfkill-regulator.ko $(DEVICE_MODULES)/lib/modules/3.10.20-1-generic/net/rfkill
 
 modprobe.d:
 	@rm -rf $(DEVICE_MODPROBE_D)

@@ -17,15 +17,15 @@ KERNEL_DTS := actduino_bubble_gum_sdboot_linux
 KERNEL_DEFCONFIG := actduino_bubble_gum_linux_defconfig
 UBOOT_DEFCONFIG := actduino_bubble_gum_v10_defconfig
 
-KERNEL_REPO := https://github.com/xapp-le/kernel.git
+KERNEL_REPO := https://github.com/woodrow-shen/xapp-le-kernel
 KERNEL_BRANCH := master
 KERNEL_SRC := $(PWD)/kernel
-KERNEL_UIMAGE := $(PWD)/uImage
 KERNEL_MODULES := $(PWD)/kernel
 KERNEL_OUT := $(PWD)/kernel-build
-#KERNEL_DTB := $(KERNEL_SRC)/arch/arm/boot/dts/.dtb
+KERNEL_UIMAGE := $(KERNEL_OUT)/arch/arm/boot/uImage
+KERNEL_DTB := $(KERNEL_OUT)/arch/arm/boot/dts/$(KERNEL_DTS).dtb
 
-UBOOT_REPO := https://github.com/xapp-le/u-boot.git
+UBOOT_REPO := https://github.com/woodrow-shen/xapp-le-u-boot
 UBOOT_BRANCH := master
 UBOOT_SRC := $(PWD)/u-boot
 UBOOT_OUT := $(PWD)/u-boot-build
