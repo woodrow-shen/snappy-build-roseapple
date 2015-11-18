@@ -5,6 +5,7 @@ all: build
 clean:
 		if test -d "$(UBOOT_SRC)" ; then $(MAKE) ARCH=arm CROSS_COMPILE=${CC} -C $(UBOOT_SRC) clean ; fi
 			rm -f $(UBOOT_BIN)
+			rm -rf $(wildcard $(UBOOT_OUT))
 
 distclean:
 		rm -rf $(wildcard $(UBOOT_SRC))

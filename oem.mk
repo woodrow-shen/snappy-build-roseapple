@@ -14,6 +14,7 @@ all: build
 
 clean:
 		rm -f $(OEM_UBOOT_BIN)
+		rm -f $(OEM_BOOT_DIR)/bootloader.bin
 		rm -f $(OEM_SNAP)
 distclean: clean
 

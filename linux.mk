@@ -7,6 +7,7 @@ all: build
 clean:
 		if test -d "$(KERNEL_SRC)" ; then $(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CC) -C $(KERNEL_SRC) mrproper ; fi
 		rm -f $(KERNEL_UIMAGE)
+		rm -rf $(wildcard $(KERNEL_OUT))
 
 distclean: clean
 		rm -rf $(wildcard $(KERNEL_SRC))
@@ -30,6 +31,8 @@ kernel: $(KERNEL_UIMAGE)
 
 modules: $(KERNEL_SRC)/.config
 		$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CC) -C $(KERNEL_SRC) -j$(CPUS) O=$(KERNEL_OUT) modules
+modules_install: modules 
+		$(MAKE) INSTALL_MOD_PATH=$(OUTPUT_DIR)/device/system ARCH=$(ARCH) CROSS_COMPILE=$(CC) -C $(KERNEL_SRC) -j$(CPUS) O=$(KERNEL_OUT) modules_install
 
 build: kernel
 

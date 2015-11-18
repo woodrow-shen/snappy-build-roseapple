@@ -58,8 +58,13 @@ preinstalled: $(DEVICE_SRC)/preinstalled.tar.gz
 	cp $(DEVICE_SRC)/preinstalled/system/boot/initrd.img-* $(DEVICE_SRC)/preinstalled/initrd.img
 
 modules:
-	@if [ ! -e $(KERNEL_MODULES) ] ; then echo "Build linux modules first."; exit 1; fi
+	@if [ ! -e $(KERNEL_MODULES) ] ; then echo "Build linux first."; exit 1; fi
 	@rm -rf $(DEVICE_MODULES)
+	@mkdir -p $(DEVICE_MODULES)
+	make -f linux.mk modules_install
+	@rm -rf $(DEVICE_MODULES)/lib/modules/3.10.37/build
+	@rm -rf $(DEVICE_MODULES)/lib/modules/3.10.37/source
+	@rm -rf $(DEVICE_MODULES)/lib/modules/3.10.37/modules.*
 
 modprobe.d:
 	@rm -rf $(DEVICE_MODPROBE_D)
