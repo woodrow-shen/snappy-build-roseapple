@@ -17,7 +17,7 @@ $(UBOOT_BIN): $(UBOOT_SRC)
 		cd $(SCRIPT_DIR) && ./padbootloader $(UBOOT_OUT)/u-boot-dtb.img
 
 $(UBOOT_SRC):
-		git clone --depth=1 $(UBOOT_REPO) -b $(UBOOT_BRANCH) u-boot
+		git clone $(UBOOT_REPO) -b $(UBOOT_BRANCH) u-boot
 
 u-boot: $(UBOOT_BIN)
 

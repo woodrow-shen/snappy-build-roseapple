@@ -13,7 +13,7 @@ distclean: clean
 		rm -rf $(wildcard $(KERNEL_SRC))
 
 $(KERNEL_SRC):
-		git clone --depth=1 $(KERNEL_REPO) -b $(KERNEL_BRANCH) kernel
+		git clone $(KERNEL_REPO) -b $(KERNEL_BRANCH) kernel
 
 $(KERNEL_SRC)/.config: $(KERNEL_SRC)
 		mkdir -p $(KERNEL_OUT)
