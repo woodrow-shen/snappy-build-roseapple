@@ -1,0 +1,5 @@
+setenv initrd_high "0xffffffff"
+setenv fdt_high "0xffffffff"
+setenv bootcmd "fatload mmc 0:1 0x00008000 a/vmlinuz; fatload mmc 0:1 0x01ffffc0 a/initrd.img; fatload mmc 0:1 0x04000000 a/dtbs/actduino_bubble_gum_sdboot_linux.dtb; bootm 0x00008000 0x01ffffc0 0x04000000"
+setenv bootargs "console=tty0 root=/dev/ram rootwait ro"
+boot
