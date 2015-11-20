@@ -23,7 +23,6 @@ u-boot:
 			cp -f $(UBOOT_BIN) $(OEM_UBOOT_BIN)
 
 preload:
-		echo "test"
 		cd $(TOOLS_DIR)/utils && ./$(BOOTLOADER_PACK) $(PRELOAD_DIR)/bootloader.bin $(PRELOAD_DIR)/bootloader.ini $(OEM_BOOT_DIR)/bootloader.bin
 
 snappy:

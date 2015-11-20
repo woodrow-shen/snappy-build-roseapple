@@ -34,6 +34,7 @@ endif
 			$(REVISION)
 
 fix-bootflag:
+		dd conv=notrunc if=boot_fix.bin of=$(SNAPPY_IMAGE) seek=440 oflag=seek_bytes
 
 workaround:
 ifeq ($(SNAPPY_WORKAROUND),yes)

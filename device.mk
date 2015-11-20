@@ -12,6 +12,7 @@ DEVICE_MODULES := $(DEVICE_SRC)/system
 DEVICE_MODPROBE_D := $(DEVICE_SRC)/system/lib/modprobe.d
 DEVICE_FIRMWARE := $(DEVICE_SRC)/system/lib/firmware
 DEVICE_TAR := $(PWD)/device-roseapple-pi_$(DEVICE_VERSION).tar.xz
+DEVICE_DTBS := $(DEVICE_SRC)/assets/dtbs
 
 all: build
 
@@ -66,6 +67,11 @@ modules:
 	@rm -rf $(DEVICE_MODULES)/lib/modules/3.10.37/source
 	@rm -rf $(DEVICE_MODULES)/lib/modules/3.10.37/modules.*
 
+dtbs:
+	@if [ ! -f $(KERNEL_DTB) ] ; then echo "Build linux first."; exit 1; fi
+	@mkdir -p $(DEVICE_DTBS)
+	cp $(KERNEL_DTB) $(DEVICE_DTBS)
+
 modprobe.d:
 	@rm -rf $(DEVICE_MODPROBE_D)
 	@mkdir -p $(DEVICE_MODPROBE_D)
@@ -74,7 +80,7 @@ modprobe.d:
 firmware:
 	rsync -rva --exclude "*-generic" $(KERNEL_MODULES)/firmware/ $(DEVICE_FIRMWARE)/
 
-device: $(DEVICE_UIMAGE) $(DEVICE_UINITRD) modules modprobe.d firmware
+device: $(DEVICE_UIMAGE) $(DEVICE_UINITRD) modules dtbs modprobe.d firmware
 	@rm -f $(DEVICE_TAR)
 	tar -C $(DEVICE_SRC) -cavf $(DEVICE_TAR) --exclude ./preinstalled --exclude ./preinstalled.tar.gz --exclude ./initrd --exclude ./initrd.img --exclude ./modprobe.d --xform s:'./':: .
 

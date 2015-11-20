@@ -22,8 +22,9 @@ oem:
     boot-assets:
       files:
         - path: boot-assets/uEnv.txt
+        - path: boot-assets/boot.scr
       raw-files:
         - path: boot-assets/bootloader.bin
-          offset: 4097
+          offset: 2097664 #4097*512
         - path: boot-assets/u-boot.bin
-          offset: 6144
+          offset: 3145728 #6144*512
