@@ -65,7 +65,6 @@ modules:
 	make -f linux.mk modules_install
 	@rm -rf $(DEVICE_MODULES)/lib/modules/3.10.37/build
 	@rm -rf $(DEVICE_MODULES)/lib/modules/3.10.37/source
-	@rm -rf $(DEVICE_MODULES)/lib/modules/3.10.37/modules.*
 
 dtbs:
 	@if [ ! -f $(KERNEL_DTB) ] ; then echo "Build linux first."; exit 1; fi
