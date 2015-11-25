@@ -14,8 +14,7 @@ SNAPPY_WORKAROUND := no
 all: build
 
 clean:
-		if test -f "$(OUTPUT_DIR)/$(SNAPPY_IMAGE)" ; then rm -r $(OUTPUT_DIR)/$(SNAPPY_IMAGE) ; fi
-		if test -f "$(OUTPUT_DIR)/$(SNAPPY_IMAGE).xz" ; then rm -r $(OUTPUT_DIR)/$(SNAPPY_IMAGE).xz ; fi
+		rm -f $(OUTPUT_DIR)/*.img.xz
 distclean: clean
 
 build-snappy:
