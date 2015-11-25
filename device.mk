@@ -24,8 +24,9 @@ clean:
 	rm -rf $(DEVICE_SRC)/preinstalled
 	rm -rf $(DEVICE_MODPROBE_D)
 
-distclean:
+distclean: clean
 	rm -rf $(DEVICE_SRC)/preinstalled.tar.gz
+	rm -rf $(DEVICE_TAR)
 
 $(DEVICE_SRC):
 	mkdir -p $(DEVICE_SRC)

@@ -7,7 +7,7 @@ clean:
 		rm -f $(UBOOT_BIN)
 		rm -rf $(wildcard $(UBOOT_OUT))
 
-distclean:
+distclean: clean
 		rm -rf $(wildcard $(UBOOT_SRC))
 
 $(UBOOT_BIN): $(UBOOT_SRC)
